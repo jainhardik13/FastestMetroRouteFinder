@@ -1,12 +1,12 @@
 import java.io.*;
 
-public class FileIntializer {
-    public static void createFiles(){
+public class FileInitializer {
+    public static void createFiles() {
         writeStations();
         writeConnections();
     }
 
-    private static void writeStations(){
+    private static void writeStations() {
         String[] stations = {
                 "1,Rajiv Chowk",
                 "2,Kashmere Gate",
@@ -31,25 +31,43 @@ public class FileIntializer {
             }
 
             pw.close();
-            System.out.println("Stations.txt created successfully.");
-        }
-        catch (IOException e) {
+            System.out.println("stations.txt created successfully.");
+        } catch (IOException e) {
             System.out.println("Error writing stations: " + e.getMessage());
         }
     }
 
     private static void writeConnections() {
         String[] connections = {
+                // Line 1 (Rajiv Chowk -> Kashmere Gate)
                 "1,2,5",
-                "1,3,10",
-                "2,4,7",
-                "3,4,8",
-                "4,5,10",
-                "5,6,6",
+
+                // Line 2 (Rajiv Chowk -> Central Secretariat)
+                "1,3,3",
+
+                // Line 3 (Central Secretariat -> Hauz Khas)
+                "3,4,7",
+
+                // Line 4 (Hauz Khas -> Huda City Centre)
+                "4,5,8",
+
+                // Line 5 (Hauz Khas -> Botanical Garden)
+                "4,6,5",
+
+                // Line 6 (Botanical Garden -> Shivaji Park)
                 "6,7,4",
-                "7,8,5",
-                "8,9,9",
-                "9,10,12"
+
+                // Line 7 (Shivaji Park -> Akshardham)
+                "7,8,6",
+
+                // Line 8 (Akshardham -> New Delhi)
+                "8,9,10",
+
+                // Line 9 (New Delhi -> Dwarka Sector 21)
+                "9,10,14",
+
+                // Line 10 (Kashmere Gate -> New Delhi)
+                "2,9,4"
         };
 
         try {
@@ -64,8 +82,7 @@ public class FileIntializer {
 
             pw.close();
             System.out.println("connections.txt created successfully.");
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error writing connections: " + e.getMessage());
         }
     }

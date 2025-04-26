@@ -22,6 +22,10 @@ public class MyList {
         return head;
     }
 
+    public void setHead(MyNode node) {
+        this.head = node;
+    }
+
     public boolean isEmpty() {
         return head == null;
     }
