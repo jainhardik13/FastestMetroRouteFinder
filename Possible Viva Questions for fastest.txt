@@ -1,0 +1,466 @@
+Possible Viva Questions for fastest metro route finder
+
+
+1. **What is the title of your project?**
+   Fastest Metro Route Finder
+
+2. **What is the main objective of your project?**
+   To find the shortest path between two metro stations using Dijkstra's algorithm.
+
+3. **What programming language did you use?**
+   Java
+
+4. **What is the motivation behind this project?**
+   To help commuters find the most efficient metro route with minimum distance.
+
+5. **Is your project console-based or GUI-based?**
+   Console-based
+
+6. **How many metro stations are used in the project?**
+   10 stations
+
+7. **How is the data stored in your project?**
+   In text files (stations.txt, connections.txt, metro\_map.txt)
+
+8. **What algorithm have you implemented?**
+   Dijkstra’s Shortest Path Algorithm
+
+9. **Why did you choose Dijkstra's algorithm?**
+   Because it is efficient for finding the shortest path in weighted graphs with non-negative weights.
+
+10. **What are the main features of your project?**
+    Display stations, find shortest route, and display metro map.
+
+
+11. **How are metro stations represented in code?**
+    Using a HashMap with station ID and name.
+
+12. **How are connections between stations stored?**
+    In a graph represented by adjacency lists.
+
+13. **What data structure is used for Dijkstra’s algorithm?**
+    PriorityQueue and arrays.
+
+14. **What is the time complexity of Dijkstra’s algorithm?**
+    O(V + E log V) with a priority queue
+
+15. **What class handles metro map file creation?**
+    MetroMapManager
+
+16. **How is input taken from the user?**
+    Using Scanner class
+
+17. **What will happen if an invalid station ID is entered?**
+    The program will display an error message.
+
+18. **How are undirected edges handled?**
+    By adding edges in both directions
+
+19. **What is the format of stations.txt?**
+    ID, Station Name
+
+20. **What is the format of connections.txt?**
+    From ID, To ID, Distance
+
+
+21. **Which Java classes are used for file reading?**
+    BufferedReader and FileReader
+
+22. **Which classes are used for file writing?**
+    PrintWriter, FileWriter, and BufferedWriter
+
+23. **How does the project handle missing files?**
+    Displays an error message or creates the file if necessary.
+
+24. **What happens if metro\_map.txt is missing?**
+    It is created using createMetroMapFile() method.
+
+25. **Is there any exception handling in the code?**
+    Yes, using try-catch blocks
+
+
+
+26. **What custom data structures are used?**
+    Graph and Edge class
+
+27. **Why is a HashMap used for stations?**
+    For quick access to station names using IDs
+
+28. **What is the role of the Edge class?**
+    To represent connections between two stations
+
+29. **How is the graph initialized?**
+    Using a HashMap with integer keys and list of Edge objects
+
+30. **How are paths stored in Dijkstra’s algorithm?**
+    Using an array to keep track of previous nodes
+
+
+
+31. **What is the first step in main()?**
+    Loading stations and connections from files
+
+32. **What menu options are available?**
+    View stations, find route, display map, and exit
+
+33. **What does displayMap() do?**
+    Reads and prints the metro\_map.txt content
+
+34. **What is the output of shortest path search?**
+    Path from source to destination and total distance
+
+35. **What is done if no path exists?**
+    A message is displayed to the user
+
+
+
+36. **How do you ensure file reading is successful?**
+    Using error handling and existence checks
+
+37. **What test cases did you consider?**
+    Valid paths, invalid IDs, disconnected stations
+
+38. **What happens if you enter a string instead of number?**
+    It throws an InputMismatchException
+
+39. **How can you prevent that?**
+    Using exception handling or input validation
+
+40. **Was the algorithm tested with different inputs?**
+    Yes, various source-destination combinations
+
+
+41. **What are the current limitations of the project?**
+    No GUI, fixed number of stations, no real-time data
+
+42. **What improvements can be made?**
+    GUI integration, live data fetching, more stations
+
+43. **Can this be converted to a web application?**
+    Yes, with backend logic and front-end design
+
+44. **What libraries can help with GUI?**
+    JavaFX or Swing
+
+45. **What happens if station.txt is edited wrongly?**
+    It may cause parsing errors or incorrect data load
+
+
+46. **How can this project help commuters?**
+    Helps them plan shortest and fastest routes
+
+47. **Is the project scalable to larger networks?**
+    Yes, by adding more stations and edges
+
+48. **How would real-time traffic affect this?**
+    Dynamic weighting can be added for real-time updates
+
+49. **What technologies can enhance it?**
+    Maps API, GPS, real-time traffic APIs
+
+50. **Is your project useful during emergencies?**
+    Yes, to find fastest evacuation paths
+Absolutely. Here are **the next 50 Viva Questions (51–100)** with a stronger focus on **technical details**, including Java programming concepts, Dijkstra's algorithm, file handling, and object-oriented design, which evaluators are likely to ask about your **Fastest Metro Route Finder** project:
+
+---
+
+### **51. What is the role of the `Edge` class in your project?**
+
+**Answer:** The `Edge` class represents a connection between two stations, storing the destination station ID (`to`) and the distance (`weight`).
+
+---
+
+### **52. Why did you use a `Map<Integer, List<Edge>>` for the graph?**
+
+**Answer:** To model an adjacency list where each station ID maps to a list of its connected neighbors, allowing efficient traversal and updates.
+
+---
+
+### **53. What is the time complexity of Dijkstra’s algorithm?**
+
+**Answer:** O((V + E) log V) when using a min-priority queue (heap), where V is vertices and E is edges.
+
+---
+
+### **54. Why did you use a `PriorityQueue` in Dijkstra’s algorithm?**
+
+**Answer:** To always pick the next station with the smallest current distance for efficient path calculation.
+
+---
+
+### **55. What is the use of `dist[]` and `prev[]` arrays?**
+
+**Answer:** `dist[]` stores the shortest distance from the source; `prev[]` helps in reconstructing the path after the algorithm runs.
+
+---
+
+### **56. How are invalid station IDs handled in the code?**
+
+**Answer:** A check using `stations.containsKey()` ensures invalid IDs are detected, and an error message is shown.
+
+---
+
+### **57. What does `Collections.reverse(path)` do?**
+
+**Answer:** Reverses the order of the path from destination to source, as the path is built backward during traversal.
+
+---
+
+### **58. How do you read and store station names?**
+
+**Answer:** Using `BufferedReader` to read `stations.txt`, then storing them in a `Map<Integer, String>`.
+
+---
+
+### **59. What happens if `stations.txt` or `connections.txt` is missing?**
+
+**Answer:** A `FileNotFoundException` is thrown and caught in a try-catch block with an error message.
+
+---
+
+### **60. What are the advantages of using `BufferedReader` over `Scanner`?**
+
+**Answer:** It’s faster and more efficient for reading large text files line by line.
+
+---
+
+### **61. What is the file format for storing connections?**
+
+**Answer:** Each line has `from,to,distance`, such as `1,2,4`.
+
+---
+
+### **62. What is the importance of `createMetroMapFile()`?**
+
+**Answer:** It writes an ASCII-art map into `metro_map.txt`, which is later displayed to the user.
+
+---
+
+### **63. Why does `MetroMapManager` use `BufferedWriter` and `PrintWriter`?**
+
+**Answer:** For efficient and convenient writing of strings line by line into a file.
+
+---
+
+### **64. What does `File.exists()` check in `MetroMapManager`?**
+
+**Answer:** It checks whether `metro_map.txt` already exists to avoid unnecessary recreation.
+
+---
+
+### **65. How are undirected connections represented in the graph?**
+
+**Answer:** By adding two edges: `graph[from].add(to)` and `graph[to].add(from)`.
+
+---
+
+### **66. Why did you separate station loading and connection loading?**
+
+**Answer:** For modularity and clarity—stations define nodes; connections define relationships.
+
+---
+
+### **67. Can the project be extended to weighted stations (e.g., delays)?**
+
+**Answer:** Yes, by adjusting edge weights to account for delays or congestion.
+
+---
+
+### **68. What will happen if an edge weight is negative?**
+
+**Answer:** Dijkstra’s algorithm does not work with negative weights—it may produce incorrect results.
+
+---
+
+### **69. How do you handle duplicate edges?**
+
+**Answer:** Currently, all listed edges are added; duplicate entries may overwrite or add redundancies.
+
+---
+
+### **70. What is `HashMap` used for in this project?**
+
+**Answer:** To quickly map station IDs to names and to store adjacency lists.
+
+---
+
+### **71. What is the difference between `HashMap` and `TreeMap`?**
+
+**Answer:** `HashMap` is unordered and faster; `TreeMap` is ordered but slower.
+
+---
+
+### **72. What data structure is used for the priority queue?**
+
+**Answer:** Java’s `PriorityQueue<int[]>` where each element is `{stationId, distance}`.
+
+---
+
+### **73. What is the base case in Dijkstra's implementation?**
+
+**Answer:** Initializing the source node with distance 0.
+
+---
+
+### **74. What’s the role of `Arrays.fill()` in the algorithm?**
+
+**Answer:** Initializes the `dist[]` to `Integer.MAX_VALUE` and `prev[]` to `-1`.
+
+---
+
+### **75. What happens if source and destination are the same?**
+
+**Answer:** The path will only contain one node, and total distance will be 0.
+
+---
+
+### **76. How are loops in the graph handled?**
+
+**Answer:** Dijkstra automatically ignores revisiting a node with a higher current distance.
+
+---
+
+### **77. How are disconnected components handled?**
+
+**Answer:** The distance remains `Integer.MAX_VALUE`, and the program reports no path found.
+
+---
+
+### **78. What will happen if there’s a cycle in the metro map?**
+
+**Answer:** Dijkstra handles cycles correctly by always picking the lowest distance node.
+
+---
+
+### **79. Why are `stations`, `graph`, and `Edge` defined as `static`?**
+
+**Answer:** To make them accessible across all static methods in `Main`.
+
+---
+
+### **80. Can you visualize the graph programmatically?**
+
+**Answer:** Not currently, but visualization libraries like JGraphX or GraphStream can be used.
+
+---
+
+### **81. What Java version are you using?**
+
+**Answer:** Java 8 or later is sufficient to run this project due to basic collections and IO usage.
+
+---
+
+### **82. Can this system be adapted to other cities?**
+
+**Answer:** Yes, by replacing the `stations.txt` and `connections.txt` with city-specific data.
+
+---
+
+### **83. Why did you use `.txt` files instead of a database?**
+
+**Answer:** For simplicity and portability, suitable for small-scale projects.
+
+---
+
+### **84. What is the difference between `BufferedReader.readLine()` and `Scanner.nextLine()`?**
+
+**Answer:** Both read a full line, but `BufferedReader` is more efficient for large files.
+
+---
+
+### **85. How did you test the correctness of shortest path?**
+
+**Answer:** Manually checking sample routes and distances from the graph.
+
+---
+
+### **86. Why do you reverse the path before displaying it?**
+
+**Answer:** Because the path is reconstructed backward from destination to source.
+
+---
+
+### **87. What is the fallback if `metro_map.txt` is not found?**
+
+**Answer:** The `MetroMapManager` automatically generates the map using ASCII art.
+
+---
+
+### **88. Can the app be turned into a GUI?**
+
+**Answer:** Yes, using JavaFX or Swing for desktop GUI; or React/JavaScript for web.
+
+---
+
+### **89. What are limitations of your system?**
+
+**Answer:** No real-time data updates, no station search by name, and limited scalability.
+
+---
+
+### **90. Can your system handle thousands of nodes?**
+
+**Answer:** With optimization, yes—but may require switching to more scalable data storage.
+
+---
+
+### **91. Why did you choose Java for this project?**
+
+**Answer:** Java has strong libraries for file handling, collections, and platform independence.
+
+---
+
+### **92. What is the default sorting mechanism in `PriorityQueue`?**
+
+**Answer:** Min-heap based on natural ordering or custom `Comparator`.
+
+---
+
+### **93. What are anonymous arrays like `new int[]{a, b}` used for?**
+
+**Answer:** To hold station ID and distance temporarily in the priority queue.
+
+---
+
+### **94. What is the significance of using `try-with-resources`?**
+
+**Answer:** Automatically closes resources like `BufferedReader` after use, preventing leaks.
+
+---
+
+### **95. What happens if a file line is malformed (e.g., missing commas)?**
+
+**Answer:** An exception is thrown and caught, showing an error message.
+
+---
+
+### **96. Why use `String.split()` and `Integer.parseInt()` together?**
+
+**Answer:** To separate file data and convert station IDs/distances from strings to integers.
+
+---
+
+### **97. What are the differences between `==` and `.equals()` in Java?**
+
+**Answer:** `==` checks reference equality; `.equals()` checks value equality.
+
+---
+
+### **98. What does `System.out.print()` do compared to `println()`?**
+
+**Answer:** `print()` stays on the same line; `println()` moves to the next line.
+
+---
+
+### **99. What Java concept allows reading files from disk?**
+
+**Answer:** File IO using `java.io.*` classes like `FileReader`, `BufferedReader`, etc.
+
+---
+
+### **100. Why is exception handling important in your project?**
+
+**Answer:** To handle missing files, input errors, and ensure smooth user experience.
+
+
+

@@ -1,0 +1,18 @@
+         Kashmere Gate (2)
+               |
+         Rajiv Chowk (1)
+              / \
+             /   \
+Central Secretariat (3)
+             |
+       Hauz Khas (4)
+         /      \
+Huda City Centre (5)   Botanical Garden (6)
+                          |
+                    Shivaji Park (7)
+                          |
+                    Akshardham (8)
+                          |
+                     New Delhi (9)
+                          |
+               Dwarka Sector 21 (10)

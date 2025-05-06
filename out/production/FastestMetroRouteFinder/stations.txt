@@ -1,0 +1,10 @@
+1,Rajiv Chowk
+2,Kashmere Gate
+3,Central Secretariat
+4,Hauz Khas
+5,Huda City Centre
+6,Botanical Garden
+7,Shivaji Park
+8,Akshardham
+9,New Delhi
+10,Dwarka Sector 21

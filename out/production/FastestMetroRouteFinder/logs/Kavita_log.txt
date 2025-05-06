@@ -1,0 +1,6 @@
+[2025-05-06 10:43:10] Logged in.
+[2025-05-06 10:43:17] Viewed all stations.
+[2025-05-06 10:44:06] Finding shortest path from 1 to 8
+[2025-05-06 10:44:06] Displayed shortest route: Rajiv Chowk to Akshardham, Distance: 19 km
+[2025-05-06 10:44:18] Viewed Metro Map.
+[2025-05-06 10:44:26] Logged out and exited.
