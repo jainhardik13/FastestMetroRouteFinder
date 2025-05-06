@@ -21,7 +21,62 @@ public class Main {
         loadConnections();
 
         Scanner sc = new Scanner(System.in);
+        String currentUser = null;
 
+        // Login or Signup
+        while (true) {
+            System.out.println("\n=== Welcome to Metro Route Finder ===");
+            System.out.println("1. Sign Up");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            if (choice == 1) {
+                System.out.print("Enter new username: ");
+                String user = sc.nextLine();
+                System.out.print("Enter password: ");
+                String pass = sc.nextLine();
+
+                try {
+                    if (UserManager.signUp(user, pass)) {
+                        System.out.println("Sign-up successful. You can now log in.");
+                    } else {
+                        System.out.println("Username already exists. Try another.");
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error during sign-up: " + e.getMessage());
+                }
+
+            } else if (choice == 2) {
+                System.out.print("Enter username: ");
+                String user = sc.nextLine();
+                System.out.print("Enter password: ");
+                String pass = sc.nextLine();
+
+                try {
+                    if (UserManager.login(user, pass)) {
+                        currentUser = user;
+                        System.out.println("Login successful. Welcome, " + user + "!");
+                        UserManager.logAction(currentUser, "Logged in.");
+                        break;
+                    } else {
+                        System.out.println("Invalid username or password.");
+                    }
+                } catch (IOException e) {
+                    System.out.println("Error during login: " + e.getMessage());
+                }
+
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                return;
+            } else {
+                System.out.println("Invalid choice!");
+            }
+        }
+
+        // Main Menu after login
         while (true) {
             System.out.println("\n=== FASTEST METRO ROUTE FINDER ===");
             System.out.println("1. View All Stations");
@@ -34,18 +89,22 @@ public class Main {
             switch (ch) {
                 case 1:
                     displayStations();
+                    UserManager.logAction(currentUser, "Viewed all stations.");
                     break;
                 case 2:
                     System.out.print("Enter Source Station ID: ");
                     int src = sc.nextInt();
                     System.out.print("Enter Destination Station ID: ");
                     int dest = sc.nextInt();
-                    dijkstra(src, dest);
+                    UserManager.logAction(currentUser, "Finding shortest path from " + src + " to " + dest);
+                    dijkstra(src, dest, currentUser);
                     break;
                 case 3:
                     displayMap();
+                    UserManager.logAction(currentUser, "Viewed Metro Map.");
                     break;
                 case 4:
+                    UserManager.logAction(currentUser, "Logged out and exited.");
                     System.out.println("Exiting... Thank you!");
                     return;
                 default:
@@ -112,9 +171,10 @@ public class Main {
         }
     }
 
-    static void dijkstra(int source, int destination) {
+    static void dijkstra(int source, int destination, String username) {
         if (!stations.containsKey(source) || !stations.containsKey(destination)) {
             System.out.println("Invalid Station ID(s)!");
+            UserManager.logAction(username, "Failed path search: Invalid station ID(s)");
             return;
         }
 
@@ -146,6 +206,7 @@ public class Main {
 
         if (dist[destination] == Integer.MAX_VALUE) {
             System.out.println("No path found between " + stations.get(source) + " and " + stations.get(destination));
+            UserManager.logAction(username, "No path found from " + source + " to " + destination);
             return;
         }
 
@@ -161,5 +222,8 @@ public class Main {
             if (i != path.size() - 1) System.out.print(" -> ");
         }
         System.out.println("\nTotal Distance: " + dist[destination] + " km");
+
+        UserManager.logAction(username, "Displayed shortest route: " + stations.get(source) + " to " + stations.get(destination) +
+                ", Distance: " + dist[destination] + " km");
     }
 }
